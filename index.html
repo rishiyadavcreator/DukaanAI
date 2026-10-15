@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DukaanAI - Your AI Shop Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">✦ Dukaan<span>AI</span></a>
+    <nav>
+      <a href="#generator">Generator</a>
+      <a href="#how-it-works">How it works</a>
+    </nav>
+    <a class="top-cta" href="#generator">Try it free ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">✦ YOUR AI SHOP ASSISTANT</div>
+        <h1>Turn your products into
+          <span class="gradient-text">sales-ready stories.</span>
+        </h1>
+        <p class="hero-description">
+          Create product descriptions, social captions, and bilingual
+          listings in seconds. Made for small businesses with big ambitions.
+        </p>
+        <a class="primary-button" href="#generator">
+          Create my first listing →
+        </a>
+      </div>
+
+      <div class="hero-art">
+        <div class="product-preview">
+          <div class="preview-image">
+            <div class="plant">🪴</div>
+          </div>
+          <div class="preview-body">
+            <div class="preview-kicker">YOUR NEXT BESTSELLER</div>
+            <h3>Little moments, naturally.</h3>
+            <p>A handcrafted product deserves a great story.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <span>MADE FOR SMALL BUSINESSES</span>
+      <div>
+        <span>✦ Local makers</span>
+        <span>✦ Online sellers</span>
+        <span>✦ Family shops</span>
+        <span>✦ Side hustlers</span>
+      </div>
+    </section>
+
+    <section class="generator-section" id="generator">
+      <div class="section-heading">
+        <div class="eyebrow">THE LISTING STUDIO</div>
+        <h2>Good products deserve
+          <span class="gradient-text">good words.</span>
+        </h2>
+        <p>Enter your product details to create your listing.</p>
+      </div>
+
+      <div class="studio">
+        <form id="productForm" class="input-panel">
+          <h3>01 — Product details</h3>
+
+          <label for="productName">Product name *</label>
+          <input id="productName" required
+            placeholder="e.g. Handmade soy candle">
+
+          <div class="two-col">
+            <div>
+              <label for="category">Category</label>
+              <select id="category">
+                <option>Home & living</option>
+                <option>Fashion & accessories</option>
+                <option>Food & beverage</option>
+                <option>Beauty & wellness</option>
+                <option>Electronics</option>
+                <option>Art & handmade</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="price">Price (optional)</label>
+              <input id="price" placeholder="e.g. ₹499">
+            </div>
+          </div>
+
+          <label for="features">What makes it special?</label>
+          <textarea id="features" rows="4"
+            placeholder="Materials, benefits, size, and features..."></textarea>
+
+          <div class="two-col">
+            <div>
+              <label for="tone">Writing style</label>
+              <select id="tone">
+                <option value="Friendly and warm">Friendly & warm</option>
+                <option value="Premium and elegant">Premium & elegant</option>
+                <option value="Fun and playful">Fun & playful</option>
+                <option value="Simple and trustworthy">Simple & trustworthy</option>
+              </select>
+            </div>
+            <div>
+              <label for="language">Language</label>
+              <select id="language">
+                <option>English</option>
+                <option>Hindi</option>
+                <option>Hinglish</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="primary-button generate-button" type="submit">
+            ✦ Generate my listing →
+          </button>
+          <p class="privacy-note">
+            Demo mode uses templates. Connect an AI model for real AI.
+          </p>
+        </form>
+
+        <section class="output-panel" aria-live="polite">
+          <div class="output-top">
+            <h3>02 — Your content</h3>
+            <span id="statusBadge" class="status-badge">WAITING</span>
+          </div>
+
+          <div id="emptyState" class="empty-state">
+            <div class="empty-icon">✧</div>
+            <h3>Your next great listing starts here.</h3>
+            <p>Fill in the form and click Generate.</p>
+          </div>
+
+          <div id="results" class="results hidden">
+            <div class="result-block">
+              <div class="result-label">
+                PRODUCT TITLE
+                <button class="copy-button" data-copy="resultTitle"
+                  type="button">Copy</button>
+              </div>
+              <h3 id="resultTitle"></h3>
+            </div>
+
+            <div class="result-block">
+              <div class="result-label">
+                PRODUCT DESCRIPTION
+                <button class="copy-button" data-copy="resultDescription"
+                  type="button">Copy</button>
+              </div>
+              <p id="resultDescription"></p>
+            </div>
+
+            <div class="result-block">
+              <div class="result-label">
+                SOCIAL CAPTION
+                <button class="copy-button" data-copy="resultCaption"
+                  type="button">Copy</button>
+              </div>
+              <p id="resultCaption"></p>
+            </div>
+
+            <div class="result-actions">
+              <button id="downloadBtn" class="secondary-button" type="button">
+                Download .txt
+              </button>
+              <button id="saveBtn" class="primary-button" type="button">
+                Save listing +
+              </button>
+            </div>
+            <p id="saveMessage" class="save-message"></p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="how-section" id="how-it-works">
+      <div class="section-heading">
+        <div class="eyebrow">SIMPLE BY DESIGN</div>
+        <h2>Less time writing.
+          <span class="gradient-text">More time growing.</span>
+        </h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon lavender">✎</div>
+          <h3>Describe once</h3>
+          <p>Enter your product details and brand style.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon mint">✦</div>
+          <h3>Create content</h3>
+          <p>Generate a title, description, and social caption.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon peach">↗</div>
+          <h3>Publish your way</h3>
+          <p>Copy or download content for your shop.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="open-section">
+      <div>
+        <div class="eyebrow">OPEN INNOVATION</div>
+        <h2>AI that puts small sellers in control.</h2>
+        <p>
+          DukaanAI is designed to connect with open-weight models such as
+          models served locally through Ollama. This gives developers the
+          flexibility to change models and customize their AI workflow.
+          This demo currently uses templates until a real model is connected.
+        </p>
+      </div>
+    </section>
+
+    <section class="history-section">
+      <div class="history-heading">
+        <h2>Saved listings</h2>
+        <button id="clearHistory" class="text-button" type="button">
+          Clear history
+        </button>
+      </div>
+      <div id="historyList" class="history-list">
+        <p class="history-empty">Your saved listings will appear here.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#">✦ Dukaan<span>AI</span></a>
+    <p>Made for small businesses with big ambitions.</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
